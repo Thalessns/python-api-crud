@@ -3,8 +3,11 @@ from fastapi import APIRouter, status
 from pydantic import EmailStr
 
 from src.routing.user.service import user_service
-from src.routing.user.schemas import UserCreate, User
-
+from src.routing.user.schemas import (
+    User,
+    UserCreate,
+    UserUpdate
+)
 
 user_router = APIRouter()
 prefix = "/user"
@@ -31,4 +34,26 @@ async def get_user(email: EmailStr) -> User:
     Returns:
         User: The user data.
     """
-    return await user_service.get_user_by_id(email)
+    return await user_service.get_user_by_email(email)
+
+
+@user_router.put(prefix, status_code=status.HTTP_202_ACCEPTED)
+async def update_user(data: UserUpdate) -> str:
+    """Endpoint to update a user.
+    
+    Returns:
+        str: "Success message."
+    """
+    await user_service.update_user(data)
+    return "User updated successfully!"
+
+
+@user_router.delete(prefix, status_code=status.HTTP_200_OK)
+async def delete_user(email: EmailStr) -> str:
+    """Endpoint to dele an user by the email.
+    
+    Args:
+        email (EmailStr): The user email.
+    """
+    await user_service.delete_user(email)
+    return "User deleted successfully!"

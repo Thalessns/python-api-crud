@@ -9,6 +9,13 @@ class UserCreate(BaseModel):
     email: EmailStr
 
 
+class UserUpdate(BaseModel):
+    """Schema for updating a user."""
+
+    email: EmailStr
+    name:  str
+
+
 class User(BaseModel):
     """Schema for user data."""
 
