@@ -2,15 +2,9 @@
 import pytest
 
 from httpx import ASGITransport, AsyncClient
-from pydantic_settings import BaseSettings
 
+from src.app.config import app_config
 
-class AppConfig(BaseSettings):
-    APP_HOST: str
-    APP_PORT: int
-
-
-app_config = AppConfig()
 app_url = f"http://{app_config.APP_HOST}:{app_config.APP_PORT}"
 
 
