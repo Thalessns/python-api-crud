@@ -1,0 +1,28 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - localhost:6000
+      user-agent:
+      - python-httpx/0.28.1
+    method: GET
+    uri: http://localhost:6000/user?email=example%40f1rst.com
+  response:
+    body:
+      string: '{"email":"example@f1rst.com","name":"example","date_created":"2025-09-22T02:27:19.260918","date_updated":null}'
+    headers:
+      content-length:
+      - '110'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+version: 1

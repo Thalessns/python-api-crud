@@ -1,7 +1,7 @@
 """Database module for handling database connections and operations."""
 from sqlalchemy import MetaData
 from sqlalchemy.ext.asyncio import create_async_engine
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 
 from src.database.config import database_url
 

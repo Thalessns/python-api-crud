@@ -1,0 +1,32 @@
+interactions:
+- request:
+    body: '{"email":"example@f1rst.com","name":"updated example"}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '54'
+      content-type:
+      - application/json
+      host:
+      - localhost:6000
+      user-agent:
+      - python-httpx/0.28.1
+    method: PUT
+    uri: http://localhost:6000/user
+  response:
+    body:
+      string: '"User updated successfully!"'
+    headers:
+      content-length:
+      - '28'
+      content-type:
+      - application/json
+    status:
+      code: 202
+      message: Accepted
+version: 1
